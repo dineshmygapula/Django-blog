@@ -5,9 +5,9 @@
  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark" style="background-image: url({{fet.featured_image.url}});background-blend-mode: overlay;background-size:cover;">
     <div class="col-md-8 px-0">
      
-      <h1 class="display-4 font-italic">{{fet.title}}</h1>
+      <h1 class="display-4 font-italic"><a href="{% url 'blog' fet.slug %} " class="text-dark" style="text-decoration: none;">{{fet.title}}</a></h1>
       <p class="lead my-3">{{fet.short_description}}</p>
-      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+      <p class="lead mb-0"><a href="{% url 'blog' fet.slug%}" class="text-white font-weight-bold">Continue reading...</a></p>
     </div>
   </div>
   {% endif %}
@@ -20,7 +20,7 @@
     <div class="col-md-6">
       <div class="card border-0" >
         <div class="card-body">
-          <h3>{{post.title}} </h3>
+          <h3><a href="{% url 'blog' post.slug%}" class="text-dark text-decoration-none">{{post.title}}</a> </h3>
           <small class="mb-1 text-muted">{{post.created_at | timesince}} ago by {{post.author}}</small>
           <p class="card-text">{{post.short_description}}</p>
         </div>
@@ -40,7 +40,7 @@
           {% for post in posts %}
       <div class="card border-0" >
         <div class="card-body">
-          <h3>{{post.title}} </h3>
+          <h3><a href="{% url 'blog' post.slug %}" class="text-dark text-decoration-none">{{post.title}}</a> </h3>
           <small class="mb-1 text-muted">{{post.created_at | timesince}} ago by {{post.author}}</small>
           <p class="card-text">{{post.short_description}}</p>
         </div>
@@ -55,15 +55,16 @@
 
       <aside class="col-md-4 blog-sidebar">
         <div class="p-3 mb-3 bg-light rounded">
-          <h4 class="font-italic">About</h4>
-          <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <h4 class="font-italic">{{about.about_title}}</h4>
+          <p class="mb-0">{{about.about_description}}</p>
         </div>
 
         <div class="p-3">
           <h4 class="font-italic">Follow Us</h4>
           <ol class="list-unstyled">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">LinkedIn</a></li>
+            {% for i in link %}
+            <li><a href="{{i.link}}">{{i.platform}}</a></li>
+            {% endfor %}
           </ol>
         </div>
       </aside><!-- /.blog-sidebar -->

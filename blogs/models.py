@@ -33,3 +33,23 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class About(models.Model):
+    about_title = models.CharField(max_length=25)
+    about_description = models.TextField(max_length=500)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.about_title
+
+
+class SocialLink(models.Model):
+    platform = models.CharField(max_length=100)
+    link = models.URLField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.platform

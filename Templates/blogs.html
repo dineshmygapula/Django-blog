@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <!--post content-->
+            <article>
+                <!--post header-->
+                <header class="mb-4">
+                    <!--welcome to blogpost-->
+                 <h1 class="fw-bolder mb-1">{{single_blog.title}}</h1>
+                 <!-- post met content-->
+                 <div class="text-muted fst-italic mb-2">{{single_blog.created_at}}, by {{single_blog.author}}</div>
+                 <!--post category-->
+                 <a class="badge bg-primary text-decoration-none text-light"  href="#">{{single_blog.category}}</a>
+                </header>
+                <!-- preview image figure-->
+                 <figure class="mb-4"><img class="img-fluid rounded" src='{{single_blog.featured_image.url}}'></figure>
+                 <!--post content-->
+                 <section class="mb-5">
+                    <p class="fs-5 mb-4">{{single_blog.short_description}}</p>
+                    <p class="fs-5 mb-4"> {{single_blog.blog_body}}</p>
+
+                 </section>
+            </article>
+        </div>
+        <!-- side widgets-->
+      <aside class="col-md-4 blog-sidebar">
+        <div class="p-3 mb-3 bg-light rounded">
+            
+          <h4 class="font-italic">categories</h4>
+          {% for category in categories%}
+          <ul class="list-unstyled">
+            <li><a href="#">{{category.Category_name}}</a></li>
+          {% endfor %}
+
+          </ul>
+        </div>
+          
+        <div class="p-3">
+          <h4 class="font-italic">Follow Us</h4>
+          <ol class="list-unstyled">
+            {% for i in link %}
+            <li><a href="{{i.link}}">{{i.platform}}</a></li>
+            {% endfor %}
+          </ol>
+        </div>
+      </aside><!-- /.blog-sidebar -->
+
+</div>
+{% endblock%}
