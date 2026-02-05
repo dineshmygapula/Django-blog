@@ -20,13 +20,16 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from .views import home
-from blogs.views import blog, search
+from blogs.views import blog, search, register, login, logout
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home, name="home"),
     path("category/", include("blogs.urls")),
-    path("<slug:slug>/", blog, name="blog"),
+    path("blog/<slug:slug>/", blog, name="blog"),
     path("blogs/search/", search, name="search"),
+    path("registe/r", register, name="register"),
+    path("login/", login, name="login"),
+    path("logout/", logout, name="logout"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

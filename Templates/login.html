@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h2 class="container  justify-content-center" style="margin-left: 300px;"> login</h2>
+<div class="container d-flex justify-content-center align-items-center">
+<form action="{% url 'login'%}" class="w-50" method="POST">
+  {% csrf_token %}
+  {{form}}
+  <input type="submit">
+</form>
+</div>
+{% endblock %}
