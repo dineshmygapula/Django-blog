@@ -1,1 +1,8 @@
-this is m jenkings file
+this is my jenkins file
+lets how to integrate our git code with jenkins for continous Build and continous test
+1 create a job lets take freestyle job
+2 give description of your pipe line
+3 then your sourcecode management repository url ex git repo url
+4 add your branch name which you want to integrate with jenkins 
+4 then add tigger what trigger you need is it webhook trigger or the periodical scedule or poll scm 
+
