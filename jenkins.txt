@@ -1,5 +1,5 @@
 this is my jenkins file
-lets how to integrate our git code with jenkins for continous Build and continous test
+lets how to integrate our git code with jenkins for continous Build and continous test:
 1 create a job lets take freestyle job
 2 give description of your pipe line
 3 then your sourcecode management repository url ex git repo url
