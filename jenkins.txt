@@ -5,5 +5,6 @@ lets how to integrate our git code with jenkins for continous Build and continou
 3 then your sourcecode management repository url ex git repo url
 4 add your branch name which you want to integrate with jenkins 
 5 then add tigger what trigger you need is it webhook trigger or the periodical scedule or poll scm 
+6 this are the steps to follow
 
 
